@@ -1,5 +1,7 @@
 package ar.edu.undec.plantas.core.dominio;
 
+import ar.edu.undec.plantas.controller.dtomodel.PlantaDTO;
+
 public class Planta {
 
 
@@ -28,6 +30,8 @@ public class Planta {
         return new Planta(nombrecientifico,nombrevulgar,categoria,epocaplantado,alturamaxima);
 
     }
+
+
 
     public String getNombrecientifico() {
         return nombrecientifico;
@@ -67,5 +71,15 @@ public class Planta {
 
     public void setAlturamaxima(Integer alturamaxima) {
         this.alturamaxima = alturamaxima;
+    }
+
+    public static Planta PlantaDTOtoPlanta(PlantaDTO laPlantaDTO) {
+        Planta planta = new Planta();
+        planta.setNombrecientifico(laPlantaDTO.getNombrecientifico());
+        planta.setAlturamaxima(laPlantaDTO.getAlturamaxima());
+        planta.setCategoria(laPlantaDTO.getCategoria());
+        planta.setEpocaplantado(laPlantaDTO.getEpocaplantado());
+        planta.setNombrevulgar(laPlantaDTO.getNombrevulgar());
+        return planta;
     }
 }

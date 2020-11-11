@@ -1,6 +1,7 @@
 package ar.edu.undec.plantas.core.usecase;
 
 import ar.edu.undec.plantas.core.dominio.Planta;
+import ar.edu.undec.plantas.core.exception.NombreCientificoException;
 import ar.edu.undec.plantas.core.exception.PlantaExisteException;
 import ar.edu.undec.plantas.core.repositorio.IConsultarPlantaRepositorio;
 import ar.edu.undec.plantas.core.repositorio.ICrearPlantaRepositorio;
@@ -16,12 +17,16 @@ public class CrearPlantaUseCase implements ICrearPlantaInpunt {
         this.crearPlataRepositorio=crearPlantaRepositorio;
     }
 
-    public boolean crearPlanta(Planta laPlanta) throws PlantaExisteException {
+    public boolean crearPlanta(Planta laPlanta) throws PlantaExisteException, NombreCientificoException {
        if(crearPlataRepositorio.existePlanta(laPlanta.getNombrecientifico())){
             throw new PlantaExisteException();
        }else{
+           if(laPlanta.getNombrecientifico()==null){
+               throw new NombreCientificoException();
            return crearPlataRepositorio.guardarPlanta(laPlanta);
        }
+
+
 
     }
 }

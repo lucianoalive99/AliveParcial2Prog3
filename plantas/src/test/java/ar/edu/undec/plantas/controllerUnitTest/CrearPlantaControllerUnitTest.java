@@ -1,7 +1,12 @@
 package ar.edu.undec.plantas.controllerUnitTest;
 
 //import ar.edu.undec.plantas.controller.dto.PlantaDTO;
+import ar.edu.undec.plantas.controller.dtomodel.PlantaDTO;
+import ar.edu.undec.plantas.controller.endpoint.CrearPlantaController;
+import ar.edu.undec.plantas.core.dominio.Planta;
 import ar.edu.undec.plantas.core.exception.PlantaExisteException;
+import ar.edu.undec.plantas.core.usecase.CrearPlantaUseCase;
+import ar.edu.undec.plantas.core.usecase.input.ICrearPlantaInpunt;
 import org.junit.jupiter.api.Assertions;
 
 
@@ -18,7 +23,9 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 public class CrearPlantaControllerUnitTest {
 
-/*
+
+    private ICrearPlantaInpunt crearPlantaInput;
+
     @Test
     public void crearPlanta_PlantaNoExiste_Devuelve200() throws PlantaExisteException {
         PlantaDTO laPlantaDTO=new PlantaDTO("Erythrina crista-galli","Ceibo","Faboideae","Primavera",10);
@@ -46,7 +53,7 @@ public class CrearPlantaControllerUnitTest {
     public void crearPlanta_ExcepcionNoPrevista_Devuelve500() throws PlantaExisteException {
         //Completar Test
 
-    }*/
+    }
 
 
 
