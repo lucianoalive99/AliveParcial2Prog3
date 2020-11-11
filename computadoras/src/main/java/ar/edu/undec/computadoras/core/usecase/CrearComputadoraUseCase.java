@@ -14,7 +14,7 @@ public class CrearComputadoraUseCase {
     }
 
     public boolean crearComputadora(Computadora laComputadora) throws ComputadoraExisteException {
-        if(computadoraRepositorio.existeComputadora(laComputadora.getResumen())){
+        if(computadoraRepositorio.existeComputadora(laComputadora.getcodigo())){
             throw new ComputadoraExisteException();
         }else {
             return computadoraRepositorio.guardarComputadora(laComputadora);

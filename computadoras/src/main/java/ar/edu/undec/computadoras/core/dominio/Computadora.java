@@ -3,22 +3,25 @@ package ar.edu.undec.computadoras.core.dominio;
 public class Computadora {
 
 
-    private String resumen;
+    private String codigo;
     private String procesador;
     private Integer almacenamiento;
     private String tipoalmacenamiento;
     private Integer ram;
     private String tipomaquina;
 
+    public Computadora() {
 
-
-    public static Computadora instancia(String resumen, String procesador, Integer almacenamiento,
-                                 String tipoalmacenamiento, Integer ram, String tipomaquina) {
-        return new Computadora(resumen,procesador,almacenamiento,tipoalmacenamiento,ram,tipomaquina);
     }
 
-    public Computadora(String resumen, String procesador, Integer almacenamiento, String tipoalmacenamiento, Integer ram, String tipomaquina) {
-        this.resumen = resumen;
+
+    public static Computadora instancia(String codigo, String procesador, Integer almacenamiento,
+                                 String tipoalmacenamiento, Integer ram, String tipomaquina) {
+        return new Computadora(codigo,procesador,almacenamiento,tipoalmacenamiento,ram,tipomaquina);
+    }
+
+    public Computadora(String codigo, String procesador, Integer almacenamiento, String tipoalmacenamiento, Integer ram, String tipomaquina) {
+        this.codigo = codigo;
         this.procesador = procesador;
         this.almacenamiento = almacenamiento;
         this.tipoalmacenamiento = tipoalmacenamiento;
@@ -26,12 +29,12 @@ public class Computadora {
         this.tipomaquina = tipomaquina;
     }
 
-    public String getResumen() {
-        return resumen;
+    public String getcodigo() {
+        return codigo;
     }
 
-    public void setResumen(String resumen) {
-        this.resumen = resumen;
+    public void setcodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getProcesador() {

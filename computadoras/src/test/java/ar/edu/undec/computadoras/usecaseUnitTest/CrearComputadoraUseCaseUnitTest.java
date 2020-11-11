@@ -39,7 +39,8 @@ public class CrearComputadoraUseCaseUnitTest {
     @Test
     public void crearComputadora_ComputadoraExiste_ComputadoraExisteException(){
 
-        Computadora laComputadora=Computadora.instancia("I310401000GB16GB","Core I3 1040",1000,"SSD",16,"PC");
+        Computadora laComputadora=Computadora.instancia("I310401000GB16GB",
+                "Core I3 1040",1000,"SSD",16,"PC");
 
         when(computadoraRepositorio.existeComputadora("I310401000GB16GB")).thenReturn(true);
 
