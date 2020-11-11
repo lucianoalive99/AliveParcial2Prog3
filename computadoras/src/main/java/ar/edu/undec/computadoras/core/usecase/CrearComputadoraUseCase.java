@@ -3,9 +3,10 @@ package ar.edu.undec.computadoras.core.usecase;
 import ar.edu.undec.computadoras.core.dominio.Computadora;
 import ar.edu.undec.computadoras.core.exception.ComputadoraExisteException;
 import ar.edu.undec.computadoras.core.repositorio.IComputadoraRepositorio;
+import ar.edu.undec.computadoras.core.usecase.input.ICrearComputadoInput;
 import net.bytebuddy.implementation.bytecode.Throw;
 
-public class CrearComputadoraUseCase {
+public class CrearComputadoraUseCase implements ICrearComputadoInput {
 
     private final IComputadoraRepositorio computadoraRepositorio;
 

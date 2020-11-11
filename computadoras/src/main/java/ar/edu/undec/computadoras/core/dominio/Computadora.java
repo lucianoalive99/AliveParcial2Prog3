@@ -1,5 +1,7 @@
 package ar.edu.undec.computadoras.core.dominio;
 
+import ar.edu.undec.computadoras.controller.dtomodel.ComputadoraDTO;
+
 public class Computadora {
 
 
@@ -75,5 +77,18 @@ public class Computadora {
 
     public void setTipomaquina(String tipomaquina) {
         this.tipomaquina = tipomaquina;
+    }
+
+    public static Computadora computadoraDTOtoMascota(ComputadoraDTO laComputadorDTO) {
+        Computadora computadora = new Computadora();
+
+        computadora.setcodigo(laComputadorDTO.getCodigo());
+        computadora.setProcesador(laComputadorDTO.getProcesador());
+        computadora.setAlmacenamiento(laComputadorDTO.getAlmacenamiento());
+        computadora.setTipoalmacenamiento(laComputadorDTO.getTipoalmacenamiento());
+        computadora.setRam(laComputadorDTO.getRam());
+        computadora.setTipomaquina(laComputadorDTO.getTipomaquina());
+
+        return computadora;
     }
 }

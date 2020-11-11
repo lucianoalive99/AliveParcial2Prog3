@@ -23,4 +23,14 @@ public class CrearComputadoraDataTest {
         boolean resultado = crearComputadorRepositoriImplementation.guardarComputadora(elComputadora);
         Assertions.assertTrue(resultado);
     }
+
+    @Test
+    public void crearComputadora_ComputadoraSiExiste_NoCreaMacota(){
+
+        Computadora elComputadora = Computadora.instancia("I310401000GB16GB",
+                "Core I3 1040",1000,"SSD",16,"PC");
+
+        boolean resultado = crearComputadorRepositoriImplementation.guardarComputadora(elComputadora);
+        Assertions.assertFalse(resultado);
+    }
 }

@@ -99,11 +99,11 @@ public class ComputadoraEntity {
     public static ComputadoraEntity ComputadoraToComputadoraEntity(Computadora laComputadora) {
         ComputadoraEntity computadoraEntity=new ComputadoraEntity();
 
-        computadoraEntity.setAlmacenamiento(laComputadora.getAlmacenamiento());
         computadoraEntity.setCodigo(laComputadora.getcodigo());
         computadoraEntity.setProcesador(laComputadora.getProcesador());
         computadoraEntity.setRam(laComputadora.getRam());
         computadoraEntity.setTipoalmacenamiento(laComputadora.getTipoalmacenamiento());
+        computadoraEntity.setAlmacenamiento(laComputadora.getAlmacenamiento());
         computadoraEntity.setTipomaquina(laComputadora.getTipomaquina());
         return computadoraEntity;
     }
