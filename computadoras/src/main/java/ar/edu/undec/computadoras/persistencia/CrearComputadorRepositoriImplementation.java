@@ -23,11 +23,11 @@ public class CrearComputadorRepositoriImplementation implements IComputadoraRepo
         Iterable<ComputadoraEntity> computadoraEntityList = comsultarComputadoraCRUD.findAll();
         Computadora laComputadora =new Computadora();
 
-        for (ComputadoraEntity laComputadoraEntity : computadoraEntityList) {
-            if(laComputadoraEntity.getCodigo().equals(codigo)){
-                laComputadora = ComputadoraEntity.ComputadoraEntityToComputadora(laComputadoraEntity);
+            for (ComputadoraEntity laComputadoraEntity : computadoraEntityList) {
+                if(laComputadoraEntity.getCodigo().equals(codigo)){
+                    laComputadora = ComputadoraEntity.ComputadoraEntityToComputadora(laComputadoraEntity);
+                }
             }
-        }
         return laComputadora.getcodigo() != null;
 
     }

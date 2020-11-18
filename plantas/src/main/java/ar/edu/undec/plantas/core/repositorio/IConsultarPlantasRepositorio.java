@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Collection;
 import java.util.List;
 
-public interface IConsultarPlantasRepositorio extends CrudRepository<Planta,Integer> {
+public interface IConsultarPlantasRepositorio{
     Collection<Planta> obtenerPlantas();
 
 }

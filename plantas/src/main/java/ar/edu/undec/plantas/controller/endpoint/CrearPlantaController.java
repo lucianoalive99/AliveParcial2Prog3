@@ -2,34 +2,44 @@ package ar.edu.undec.plantas.controller.endpoint;
 
 import ar.edu.undec.plantas.controller.dtomodel.PlantaDTO;
 import ar.edu.undec.plantas.core.dominio.Planta;
-import ar.edu.undec.plantas.core.exception.NombreCientificoException;
-import ar.edu.undec.plantas.core.exception.PlantaExisteException;
+import ar.edu.undec.plantas.core.exception.*;
 import ar.edu.undec.plantas.core.usecase.input.ICrearPlantaInpunt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import sun.net.www.protocol.http.HttpURLConnection;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController()
+@RequestMapping("/vivero")
 public class CrearPlantaController {
 
     @Autowired
-    private ICrearPlantaInpunt creaPlantaInput;
+    ICrearPlantaInpunt creaPlantaInput;
 
     public CrearPlantaController(ICrearPlantaInpunt crearPlantaInput) {
         this.creaPlantaInput=crearPlantaInput;
     }
 
-    public ResponseEntity<?> crearPlanta(PlantaDTO laPlantaDTO) {
+    @PostMapping("/plantas")
+    public ResponseEntity<?> crearPlanta(@RequestBody PlantaDTO laPlantaDTO) {
         Planta planta= Planta.PlantaDTOtoPlanta(laPlantaDTO);
         try {
-            boolean resultado = creaPlantaInput.crearPlanta(planta);
-            return ResponseEntity.status(HttpStatus.OK).body(resultado);
+            return ResponseEntity.status(HttpStatus.OK).body(creaPlantaInput.crearPlanta(planta));
         } catch (PlantaExisteException existePlanta) {
-            existePlanta.getMessage();
-        }catch (NombreCientificoException nombreCientificoNull){
-            nombreCientificoNull.getMessage();
+            return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).body(existePlanta.getMessage());
+        }catch (NombreCientificoNuloException nombreCientificoNulo) {
+            return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).body(nombreCientificoNulo.getMessage());
+        }catch (NombreVulgarNuloException nombreVulgarNulo) {
+            return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).body(nombreVulgarNulo.getMessage());
+        }catch (CategoriaNuloException categoriaNulo) {
+            return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).body(categoriaNulo.getMessage());
         }
-
+        catch (Exception otraEx) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(otraEx.getMessage());
+        }
 
     }
 }

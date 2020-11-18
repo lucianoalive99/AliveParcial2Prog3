@@ -9,14 +9,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController(value = "/electronica")
+@RestController
+@RequestMapping("/electronica")
 public class CrearComputadoraController {
     @Autowired
     ICrearComputadoInput crearComputadoInput;
 
-    @PostMapping(value = "/computadoras")
+    @PostMapping("/computadoras")
     public ResponseEntity<?>CrearMascota(@RequestBody ComputadoraDTO laComputadorDTO) throws ComputadoraExisteException {
         Computadora computadora = Computadora.computadoraDTOtoMascota(laComputadorDTO);
         try {
