@@ -57,7 +57,7 @@ public class CrearPlantaControllerUnitTest {
     public void crearPlanta_ExcepcionNoPrevista_Devuelve500() throws PlantaExisteException, NombreCientificoNuloException, NombreVulgarNuloException, CategoriaNuloException {
         //Completar Test
         PlantaDTO laPlantaDTO=new PlantaDTO("Erythrina crista-galli","Ceibo","Faboideae","Primavera",10);
-        when(crearPlantaInput.crearPlanta(any(Planta.class))).thenThrow(Exception.class);
+        when(crearPlantaInput.crearPlanta(any(Planta.class))).thenThrow(RuntimeException.class);
         CrearPlantaController crearPlantaController = new CrearPlantaController(crearPlantaInput);
         ResponseEntity responseEntity=crearPlantaController.crearPlanta(laPlantaDTO);
 

@@ -19,10 +19,6 @@ public class CrearPlantaUseCase implements ICrearPlantaInpunt {
 
     public boolean crearPlanta(Planta laPlanta) throws PlantaExisteException, NombreCientificoNuloException, NombreVulgarNuloException, CategoriaNuloException {
 
-
-
-
-
         if (crearPlataRepositorio.existePlanta(laPlanta.getNombrecientifico())) {
             throw new PlantaExisteException();
         } else {
